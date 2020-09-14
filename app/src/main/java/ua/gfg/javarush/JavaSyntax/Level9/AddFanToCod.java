@@ -12,7 +12,7 @@ import java.io.OutputStream;
 public class AddFanToCod {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        
+
         InputStream fileInputStream = null;
         int count = 0;
 
