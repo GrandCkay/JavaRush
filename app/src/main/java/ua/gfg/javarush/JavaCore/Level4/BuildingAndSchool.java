@@ -1,4 +1,4 @@
-package ua.gfg.javarush.JavaCore.Level3;
+package ua.gfg.javarush.JavaCore.Level4;
 
 public interface BuildingAndSchool {
     public static void main(String[] args) {

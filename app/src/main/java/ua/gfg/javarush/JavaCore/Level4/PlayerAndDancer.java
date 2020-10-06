@@ -1,4 +1,4 @@
-package ua.gfg.javarush.JavaCore.Level3;
+package ua.gfg.javarush.JavaCore.Level4;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
