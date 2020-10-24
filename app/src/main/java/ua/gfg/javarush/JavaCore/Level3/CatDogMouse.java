@@ -43,7 +43,7 @@ public class CatDogMouse {
         }
     }
 
-    public class Mouse implements Movable, Edible {
+    public class MouseLevel3 implements Movable, Edible {
         @Override
         public void move() {
         }

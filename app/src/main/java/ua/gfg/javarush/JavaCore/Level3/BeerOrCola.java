@@ -6,21 +6,21 @@ public class BeerOrCola {
         print(new Cola());
     }
 
-    private static void print(Drink drink) {
-        System.out.println(drink.getClass().getSimpleName());
+    private static void print(DrinkLevel3 drinkLevel3) {
+        System.out.println(drinkLevel3.getClass().getSimpleName());
     }
 
-    public interface Drink {
+    public interface DrinkLevel3 {
         boolean isAlcoholic();
     }
 
-    public static class Beer implements Drink {
+    public static class Beer implements DrinkLevel3 {
         public boolean isAlcoholic() {
             return true;
         }
     }
 
-    public static class Cola implements Drink {
+    public static class Cola implements DrinkLevel3 {
         public boolean isAlcoholic() {
             return false;
         }
