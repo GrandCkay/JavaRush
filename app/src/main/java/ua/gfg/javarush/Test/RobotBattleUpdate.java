@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
+
 interface Defensable {
     BodyPart defense();
 }
@@ -33,7 +34,7 @@ class Solution {
         } else {
             num = 0;
         }
-        Thread.sleep(1000);
+        Thread.sleep(500);
 
         while (!AbstractRobot.knockout) {
             if (num == 1) {
@@ -52,43 +53,45 @@ class Solution {
         System.out.println(AbstractRobot.winner);
     }
 
+
     public static void doMove(AbstractRobot robotFirst, AbstractRobot robotSecond) {
         BodyPart attacked = robotFirst.attack();
         BodyPart defenced = robotFirst.defense();
-        String armCase = "руку";
-        String legCase = "ногу";
-        String headCase = "голову";
         String attackedString;
 
 
         if (AbstractRobot.hitCountAttack == AbstractRobot.hitCountDefense) {
+            attackedString = BodyPart.casesBodyParts(attacked);
 
-            if (attacked.equals(BodyPart.ARM)) {
-                attackedString = armCase;
-            } else if (attacked.equals(BodyPart.HEAD)) {
-                attackedString = headCase;
-            } else {
-                attackedString = legCase;
-            }
+            System.out.print(AbstractRobot.hitCountAttack + " hitCountAttack    ");
+            System.out.println(AbstractRobot.hitCountDefense + " hitCountDefense");
 
             System.out.println(String.format("%s(%sHP) атаковал %s(%sHP), удар в %s заблокирован",
                     robotFirst.getName(), robotFirst.healthyStart, robotSecond.getName(), robotSecond.healthyStart, attackedString));
-
         } else {
+            System.out.print(AbstractRobot.hitCountAttack + " hitCountAttack    ");
+            System.out.println(AbstractRobot.hitCountDefense + " hitCountDefense");
+
+
             AbstractRobot.healthyAfter = robotSecond.healthyStart - AbstractRobot.attackedPart;
+
             System.out.println(String.format("%s(%sHP) атаковал %s(%sHP), УДАР ПРОШЕЛ! Атакована %s, защищена %s, -%sHP у \"%s\"",
                     robotFirst.getName(), robotFirst.healthyStart, robotSecond.getName(), robotSecond.healthyStart, attacked, defenced,
                     AbstractRobot.attackedPart, robotSecond.getName()));
+
             robotSecond.healthyStart = AbstractRobot.healthyAfter;
+            winner(AbstractRobot.healthyAfter, robotFirst, robotSecond);
+        }
+    }
 
 
-            if (AbstractRobot.healthyAfter <= 0) {
-                AbstractRobot.knockout = true;
+    public static void winner(int healthyAfter, AbstractRobot robotFirst, AbstractRobot robotSecond) {
+        if (healthyAfter <= 0) {
+            AbstractRobot.knockout = true;
 
-                AbstractRobot.winner = robotFirst.name + " мощьным ударом отправляет "
-                        + robotSecond.name + " в нокдаун. " + "Рефери отсчитывает время:" + "\n10...9...8...7...6...5"
-                        + "...4...3...2...1...НОКАУТ!!!" + "\nФеерическая победа. Победитель - " + robotFirst.name.toUpperCase() + "!";
-            }
+            AbstractRobot.winner = robotFirst.name + " мощным ударом отправляет "
+                    + robotSecond.name + " в нокдаун. " + "Рефери отсчитывает время:" + "\n10...9...8...7...6...5"
+                    + "...4...3...2...1...НОКАУТ!!!" + "\nФеерическая победа. Победитель - " + robotFirst.name.toUpperCase() + "!";
         }
     }
 }
@@ -162,12 +165,24 @@ final class BodyPart {
     final static int DAMAGE_HEAD = 20;
     final static int DAMAGE_ARM = 5;
     final static int DAMAGE_CHEST = 15;
-
-
     private String bodyPart;
 
     private BodyPart(String bodyPart) {
         this.bodyPart = bodyPart;
+    }
+
+    public static String casesBodyParts(BodyPart bodyPart) {
+        String armCase = "руку";
+        String legCase = "ногу";
+        String headCase = "голову";
+
+        if (bodyPart.equals(BodyPart.ARM)) {
+            return armCase;
+        } else if (bodyPart.equals(BodyPart.HEAD)) {
+            return headCase;
+        } else {
+            return legCase;
+        }
     }
 
     @Override
