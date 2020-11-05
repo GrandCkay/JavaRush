@@ -3,6 +3,15 @@ package ua.gfg.javarush.JavaCore.Level4;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+
+    /*
+        НОД: 4 уровень, 8 лекция Java Core
+
+        Введи с клавиатуры 2 целых положительных числа. Выведи в консоли наибольший общий делитель.
+        Если введенные строки невозможно преобразовать в положительные целые числа,
+        должно возникать исключение, и успешно завершаться.
+    */
+
 public class NOD {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

@@ -2,10 +2,13 @@ package ua.gfg.javarush.JavaCore.Level4;
 
 
         /*
-            8 Создать переменную movie класса Movie и для каждой введенной строки(ключа):
-                8.1 получить объект используя MovieFactory.getMovie и присвоить его переменной movie
-                8.2 вывести на экран movie.getClass().getSimpleName()
-                "cartoon" "soapOpera" "thriller" Cartoon Thriller
+            MovieFactory: 4 уровень, 8 лекция Java Core
+
+            Добавить статические классы Cartoon, Thriller.
+            Добавить в MovieFactory.getMovie получение объекта Cartoon для ключа "cartoon" и Thriller для ключа "thriller".
+            Считать с консоли несколько ключей (строк) ввод заканчивается, как только вводится строка не совпадающая с одной из: "cartoon", "thriller", "soapOpera".
+            Создать переменную movie типа Movie, для каждой введенной строки (ключа): вызвать метод MovieFactory.getMovie()
+            (в том числе для некорректной) и вывести на экран имена (movie.getClass().getSimpleName()).
         */
 
 import java.io.BufferedReader;
