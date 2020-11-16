@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-// "RUB" "UAH" "USD" Hrivna Money Ruble USD
+// "RUB" "UAH" "USD" Hryvna Money Ruble USD
 
 public class Currency {
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class Currency {
             this.name = name;
             this.allMoney = new ArrayList<Money>();
             //напишите тут ваш код
-            allMoney.add(new Hrivna(500.5));
+            allMoney.add(new Hryvna(500.5));
             allMoney.add(new Ruble(10.2));
             allMoney.add(new USD(250.7));
         }
@@ -48,9 +48,9 @@ abstract class Money {
 }
 
 
-class Hrivna extends Money {
+class Hryvna extends Money {
 
-    public Hrivna(double amount) {
+    public Hryvna(double amount) {
         super(amount);
     }
 
