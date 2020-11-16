@@ -51,7 +51,8 @@ public class OOPUpdateExtends {
         }
 
         public Object containsBones() {
-            return new String("Yes");
+            return "Yes";
+//            return new String("Yes");
         }
 
         public String toString() {
@@ -68,11 +69,13 @@ public class OOPUpdateExtends {
         }
 
         public Object containsBones() {
-            if (super.containsBones().equals("Yes") && !isArtificial) {
-                return super.containsBones();
-            } else {
-                return new String("No");
-            }
+            return super.containsBones().equals("Yes") && !isArtificial ? "Yes" : "No";
+
+//            if (super.containsBones().equals("Yes") && !isArtificial) {
+//                return super.containsBones();
+//            } else {
+//                return new String("No");
+//            }
         }
     }
 }
