@@ -7,7 +7,6 @@ public class SequentialExecutions {
         for (int i = 0; i < COUNT; i++) {
             new SleepingThread().join();
             //напишите тут ваш код
-
         }
     }
 
