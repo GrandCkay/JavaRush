@@ -52,11 +52,23 @@ class Sun implements Planet {
     private Sun() {
     }
 
+
+
     /*
     Volatile-переменные
     Переменной с ключевым словом volatile означает, что значение этой переменной может изменяться другими потоками.
     В целях повышения производительности спецификация языка Java допускает сохранение в JRE локальной копии
     переменной для каждого потока, который на нее ссылается.
+
+//    // ?!
+//        static {
+//        synchronized (Sun.class) {
+//            instance = new Sun();
+//        }
+//    }
+//        public static Sun getInstance() {
+//            return instance;
+//        }
 
     Synchronized (с англ. "синхронизированный") - это ключевое слово,
     которое позволяет заблокировать доступ к методу или части кода, если его уже использует другой поток.
@@ -72,6 +84,7 @@ class Sun implements Planet {
         }
         return instance;
     }
+
 
 //    // 1
 //    private static Sun instance;
