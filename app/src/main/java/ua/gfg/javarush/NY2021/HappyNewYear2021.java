@@ -6,10 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 
@@ -27,17 +24,20 @@ public class HappyNewYear2021 {
     public static void main(String[] args) throws IOException, InterruptedException {
         List<String> listColor = Arrays.asList(RED, GREEN, YELLOW, BLUE, PURPLE, CYAN);
 
-        HashMap<String, String> hashMap = new LinkedHashMap<>();
+//        HashMap<String, String> hashMap = new LinkedHashMap<>();      // 1
 
         BufferedReader readerFile = new BufferedReader(new InputStreamReader(System.in));
         BufferedReader reader = new BufferedReader(new FileReader(readerFile.readLine().trim()));
 
         // C:\Users\Home\Desktop\NY2021.txt
         Collections.shuffle(listColor, new Random());
+        System.out.println();       // 2
 
         int i = 0;
         for (String s; (s = reader.readLine()) != null; ) {
-            hashMap.put(s, listColor.get(i));
+//            hashMap.put(s, listColor.get(i));     // 1
+            System.out.println("\t" + listColor.get(i) + s);       // 2
+            Thread.sleep(1500);                 // 2
             i++;
             if (i == listColor.size()) {
                 i = 0;
@@ -45,12 +45,13 @@ public class HappyNewYear2021 {
             }
         }
 
-        System.out.println();
-
-        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            Thread.sleep(1500);
-            System.out.println("\t" + entry.getValue() + entry.getKey());
-        }
+//          // 1
+//        System.out.println();
+//
+//        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+//            Thread.sleep(1500);
+//            System.out.println("\t" + entry.getValue() + entry.getKey());
+//        }
 
         System.out.println();
         fir(listColor, 20);
