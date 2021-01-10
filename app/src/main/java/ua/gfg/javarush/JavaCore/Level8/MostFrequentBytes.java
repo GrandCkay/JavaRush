@@ -12,6 +12,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/*
+    Самые частые байты: 8 уровень, 3 лекция Java Core / Most frequent bytes: level 8, lesson 3 JavaRush
+
+        Задание от JavaRush
+    Самые частые байты: 8 уровень, 3 лекция Java Core
+    Ввести с консоли имя файла. Найти байт или байты с максимальным количеством повторов.
+    Для чтения из файла используй поток FileInputStream. Вывести их на экран через пробел в одну строку.
+    Закрыть поток ввода- вывода.
+ */
+
+
 // C:\Users\Home\Desktop\1.txt
 public class MostFrequentBytes {
     @RequiresApi(api = Build.VERSION_CODES.N)
