@@ -13,6 +13,7 @@ public class AdaptingMultipleInterfaces {
     }
 
     public static void main(String[] args) {
+
         IncomeData incomeData = new IncomeData() {
             @Override
             public String getCountryCode() {
