@@ -1,4 +1,4 @@
-package ua.gfg.javarush.GitLabTest;
+package ua.gfg.javarush.GitLabTest.Bean;
 
 import java.text.DateFormat;
 import java.text.ParseException;

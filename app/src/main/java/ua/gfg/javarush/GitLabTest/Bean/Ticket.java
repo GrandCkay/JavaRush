@@ -1,4 +1,4 @@
-package ua.gfg.javarush.GitLabTest;
+package ua.gfg.javarush.GitLabTest.Bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class Ticket {
     @Override
     public String toString() {
         return String.format("Назва івенту - %s, кількість білетів - %d, " +
-                "загальна вартість - %d, ім’я та прізвище покупця - %s %s",
+                        "загальна вартість - %d, ім’я та прізвище покупця - %s %s",
                 getEventNameTicket(), getCount(), getPriceTicket(), getCustomer());
     }
 }
