@@ -38,7 +38,7 @@ public class BuyTicket {
 
                     Ticket ticket = new Ticket(eventNameTicket, quantityTicket, priceTicket, customer);
                     Ticket.ticketList.add(ticket);
-                    System.out.println("Готово, вітаю!\n");
+                    System.out.println("Готово, вітаю!");
                     return;
                 }
             }
@@ -53,7 +53,7 @@ public class BuyTicket {
             i *= -1;
         }
 
-        if (i <= event.getQuantity()) {
+        if (i <= event.getQuantity() && event.getQuantity() != 0) {
             return i;
         } else {
             System.out.println("Вам будет продано максимальна доступка кількість квитків - " + event.getQuantity());
