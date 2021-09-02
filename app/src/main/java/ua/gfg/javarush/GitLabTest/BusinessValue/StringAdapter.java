@@ -1,4 +1,4 @@
-package ua.gfg.javarush.GitLabTest.Bean;
+package ua.gfg.javarush.GitLabTest.BusinessValue;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +9,7 @@ public class StringAdapter {
         try {
             i = Integer.parseInt(s);
         } catch (NumberFormatException numberFormatException) {
-            System.out.println("Будь ласка вводьте цифрами.");
+            System.out.println("Помилка вводу, повторіть. Будь ласка вводьте цифрами.");
             i = stringAdapter(bufferedReader.readLine(), bufferedReader);
         }
         return i;

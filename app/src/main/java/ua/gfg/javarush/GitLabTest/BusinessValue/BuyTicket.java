@@ -13,7 +13,7 @@ public class BuyTicket {
     public static void buyTicket() throws IOException {
 
         String eventNameTicket, customer;
-        int countTicket, priceTicket;
+        int quantityTicket, priceTicket;
 
         System.out.println("Введіть назву івенту:");
         eventNameTicket = bufferedReader.readLine();
@@ -21,18 +21,22 @@ public class BuyTicket {
         do {
 
             for (Event event : Event.eventList) {
-                if (event.getNameEvent().equals(eventNameTicket)) {
+                if (event.getNameEvent().equalsIgnoreCase(eventNameTicket)) {
 
-                    System.out.println("Введіть кількість квитків:");
-                    countTicket = StringAdapter.stringAdapter(bufferedReader.readLine(), bufferedReader);
+                    System.out.println("Введіть кількість квитків, доступно - " + event.getQuantity());
+                    int count = StringAdapter.stringAdapter(bufferedReader.readLine(), bufferedReader);
+                    quantityTicket = quantityTicket(event, count);
+                    event.setQuantity(event.getQuantity() - quantityTicket);
 
-                    priceTicket = countTicket * event.getPrice();
-                    System.out.println("Загальна вартість складе: " + priceTicket);
+
+                    priceTicket = quantityTicket * event.getPrice();
+                    System.out.println("Кількість квитків яку Ви бажаєте придбати - " + quantityTicket
+                            + ". Загальна вартість складе: " + priceTicket);
 
                     System.out.println("Введіть ім'я та прізвище покупця");
                     customer = bufferedReader.readLine();
 
-                    Ticket ticket = new Ticket(eventNameTicket, countTicket, priceTicket, customer);
+                    Ticket ticket = new Ticket(eventNameTicket, quantityTicket, priceTicket, customer);
                     Ticket.ticketList.add(ticket);
                     System.out.println("Готово, вітаю!\n");
                     return;
@@ -42,5 +46,18 @@ public class BuyTicket {
             System.out.println("Івент не знайдено, спробуйте ще раз. або натисніть 0");
 
         } while (!(eventNameTicket = bufferedReader.readLine()).equals("0"));
+    }
+
+    private static int quantityTicket(Event event, int i) {
+        if (i < 0) {
+            i *= -1;
+        }
+
+        if (i <= event.getQuantity()) {
+            return i;
+        } else {
+            System.out.println("Вам будет продано максимальна доступка кількість квитків - " + event.getQuantity());
+            return event.getQuantity();
+        }
     }
 }

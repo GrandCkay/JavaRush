@@ -1,7 +1,9 @@
 package ua.gfg.javarush.GitLabTest.Bean;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Ticket {
     private String customer;
@@ -9,6 +11,8 @@ public class Ticket {
     private String eventNameTicket;
     private int priceTicket;
     public static List<Ticket> ticketList = new ArrayList<>();
+    public static Map<String, Ticket> stringTicketMap = new HashMap<>();
+
 
     public Ticket(String eventNameTicket, int countTicket, int priceTicket, String customer) {
         this.customer = customer;
